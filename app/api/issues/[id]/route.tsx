@@ -9,7 +9,7 @@ export async function GET(
   try {
     const issue = await prisma.issue.findUnique({
       where: {
-        id: parseInt(params.id),
+        id: params.id,
       },
     });
     return NextResponse.json(issue, { status: 200 });
@@ -24,7 +24,7 @@ export async function DELETE(
   try {
     const DeletedIssue = await prisma.issue.delete({
       where: {
-        id: parseInt(params.id),
+        id: params.id,
       },
     });
     return NextResponse.json(DeletedIssue, { status: 200 });
@@ -44,7 +44,7 @@ export async function PATCH(
       return NextResponse.json("invalid data", { status: 400 });
     const issue = await prisma.issue.update({
       where: {
-        id: parseInt(params.id),
+        id: params.id,
       },
       data: {
         title: body.title,
