@@ -16,15 +16,10 @@ interface Props {
 }
 
 const getIssues = async ({ searchParams }: Props): Promise<Issue[]> => {
-  try {
-    const queryParams = new URLSearchParams(searchParams);
-    const url = `${process.env.API_URL}/api/issues?${queryParams.toString()}`;
-    const res = await fetch(url, { cache: "no-store" });
-    return res.json();
-  } catch (error) {
-    if (error instanceof Error) console.log(error);
-    return [];
-  }
+  const queryParams = new URLSearchParams(searchParams);
+  const url = `${process.env.API_URL}/api/issues?${queryParams.toString()}`;
+  const res = await fetch(url, { cache: "no-store" });
+  return res.json();
 };
 
 const IssuesPage = async ({ searchParams }: Props) => {

@@ -12,15 +12,10 @@ interface Props {
 }
 
 export const getIssue = async ({ params }: Props): Promise<Issue> => {
-  try {
-    const res = await fetch(`${process.env.API_URL}/api/issues/${params.id}`, {
-      cache: "no-store",
-    });
-    return res.json();
-  } catch (error: any) {
-    console.log(error);
-    throw new Error(error.message);
-  }
+  const res = await fetch(`${process.env.API_URL}/api/issues/${params.id}`, {
+    cache: "no-store",
+  });
+  return res.json();
 };
 
 const IssueDetailPage = async ({ params }: Props) => {
