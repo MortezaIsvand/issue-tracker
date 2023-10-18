@@ -76,7 +76,7 @@ const CreateIssueForm = ({ initialValues, isEditting, params }: Props) => {
           <select
             className="border bg-gray-50 p-2 rounded-md focus:outline-blue-700"
             {...register("status")}
-            defaultValue={""}
+            defaultValue={"OPEN"}
           >
             <option>--Status--</option>
             <option value={"OPEN"}>open</option>
